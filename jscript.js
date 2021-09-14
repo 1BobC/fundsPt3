@@ -50,7 +50,37 @@
   //   myBigFunction();
 
     // Let's build a function - why not?
-    function displayMessage(){
-      
 
+    const btn = document.querySelector('button');  //used to get the message box to appear when the user clicks the button
+    // btn.onclick = displayMessage;                  //and no parenthesis so that function not called until button clicked    
+    btn.onclick = function(){                           //update to enable various messages with onclick
+      displayMessage('This is a different message');
+      displayMessage('This is another different message');  //only the second message displayed but no error
+    };
+    
+    function displayMessage(msgText, msgType){                        //updated with parameters
+      const html = document.querySelector('html');
+
+const panel = document.createElement('div');
+panel.setAttribute('class', 'msgBox');
+html.appendChild(panel);
+
+const msg = document.createElement('p');
+//msg.textContent = 'This is a message box';
+msg.textContent = msgText;                  //updated to incorporate various messages
+panel.appendChild(msg);
+
+
+
+const closeBtn = document.createElement('button');
+closeBtn.textContent = 'x';
+panel.appendChild(closeBtn);
+
+closeBtn.onclick = function() {
+  panel.parentNode.removeChild(panel);
+}
     }
+    
+      //displayMessage();
+
+//Improving the function with parameters see updates above
