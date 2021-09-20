@@ -53,12 +53,14 @@
 
     const btn = document.querySelector('button');  //used to get the message box to appear when the user clicks the button
     // btn.onclick = displayMessage;                  //and no parenthesis so that function not called until button clicked    
-    btn.onclick = function(){                           //update to enable various messages with onclick
-      displayMessage('This is a different message');
-      displayMessage('This is another different message');  //only the second message displayed but no error
+    btn.onclick = function(){                           //update1 to enable various messages with onclick
+      //displayMessage('This is a different message');
+      //displayMessage('This is another different message');  //only the second message displayed but no error
+      //displayMessage('Your inbox is almost full — delete some mails', 'warning');
+      displayMessage('Brian: Hi there, how are you today?','chat');
     };
     
-    function displayMessage(msgText, msgType){                        //updated with parameters
+    function displayMessage(msgText, msgType){                        //update1 with parameters
       const html = document.querySelector('html');
 
 const panel = document.createElement('div');
@@ -67,7 +69,7 @@ html.appendChild(panel);
 
 const msg = document.createElement('p');
 //msg.textContent = 'This is a message box';
-msg.textContent = msgText;                  //updated to incorporate various messages
+msg.textContent = msgText;                  //update1 to incorporate various messages
 panel.appendChild(msg);
 
 
@@ -79,8 +81,19 @@ panel.appendChild(closeBtn);
 closeBtn.onclick = function() {
   panel.parentNode.removeChild(panel);
 }
+
+if (msgType === 'warning') {
+  msg.style.backgroundImage = '/warning.png';
+  panel.style.backgroundColor = 'red';
+} else if (msgType === 'chat'){
+  msg.style.backgroundImage = '/chat.png';
+  panel.style.backgroundColor = 'aqua';
+} else{
+  msg.style.paddingLeft = '20px';
+}
     }
     
       //displayMessage();
 
-//Improving the function with parameters see updates above
+//Improving the function with parameters see update1 above
+//A more complex parameter see more update2 above
