@@ -30,3 +30,30 @@ input.onchange = function() {
         para.textContent = `${num} squared is: ${squared(num)}.${num} cubed is: ${cubed(num)}. ${num} factorial is: ${factorial(num)}.`
     }
 }
+
+//Own example
+//Function Library myExample preset words
+const input1 = document.querySelector('.letterInput');
+const para1 =  document.querySelector('p');
+
+function oneWord(alf){
+    return alf + 'oneWord';
+}
+
+function twoWords(alf){
+    return alf + 'twoWords';
+}
+
+function threeWords(alf){
+    return alf + 'threeWords';
+}
+
+input.onchange = function(){
+    const alf = (input.value);
+    if (input.value = null){
+        para1.textContent = 'Please enter a letter';        
+    }else{
+        para1.textContent = `${alf} oneWord is: ${oneWord(alf)}. twoWords are: ${twoWords(alf)}. threeWords are: ${threeWords(alf)}.`
+    }
+}
+
